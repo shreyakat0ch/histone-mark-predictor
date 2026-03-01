@@ -1,0 +1,9 @@
+torch>=2.0.0
+numpy
+pandas
+scipy
+pyfaidx
+tqdm
+matplotlib
+matplotlib-inline
+pickle5
