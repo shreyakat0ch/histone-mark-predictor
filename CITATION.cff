@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Shreyak"
+  given-names: ""
+title: "Histone Mark Predictor"
+version: 1.0.0
+date-released: 2024-05-06
+url: "https://github.com/your-username/histone-mark-predictor"
+abstract: >-
+  A deep learning architecture for cell-conditioned histone mark signal prediction
+  using DNA sequence and RNA-seq fingerprints.
+keywords:
+  - bioinformatics
+  - deep learning
+  - histone marks
+  - chromatin
+  - genomics
