@@ -165,8 +165,7 @@ def main():
     criterion = MaskedHybridLoss().to(device)
     optimizer = optim.AdamW(model.parameters(), lr=config.LEARNING_RATE, weight_decay=config.WEIGHT_DECAY)
     
-    # Warmup: linearly ramp LR from ~0 to target over WARMUP_STEPS,
-    # then cosine-decay for the remaining training.
+    # Scheduler: Linear warmup followed by Cosine Annealing
     steps_per_epoch = max(1, len(train_loader))
     total_steps = steps_per_epoch * config.EPOCHS
     warmup_steps = getattr(config, 'WARMUP_STEPS', 0)

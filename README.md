@@ -26,6 +26,34 @@ The model follows a tiered design:
 3. **Fusion Layer**: FiLM conditioning parameters ($\gamma, \beta$) generated from RNA embeddings to modulate DNA features.
 4. **Task Heads**: Attention-pooled shared representations routed to mark-specific regression heads.
 
+## How to Use
+
+### 1. Data Preparation
+Organize your data in the `data/` directory (or set `HISTONE_DATA_DIR`):
+- `data/<cell_line>/chip_histone/*.bed`: narrowPeak files for target marks.
+- `data/<cell_line>/RNA/*.tsv`: Expression files.
+- `data/hg38.fa`: Reference genome.
+
+### 2. Preprocessing
+Run the offline data pipeline to index peaks and compute global RNA fingerprints:
+```bash
+python src/data_pipeline.py
+```
+
+### 3. Training
+Start the multi-task training loop:
+```bash
+python src/train.py
+```
+Checkpoints and diagnostic plots will be saved to `runs/`.
+
+### 4. Evaluation
+Evaluate the model on the held-out test set (by cell line):
+```bash
+python src/evaluate.py
+```
+This generates Pearson, Spearman, and classification metrics (AUROC/AUPRC) across all marks.
+
 ## Citations & Related Work
 
 This work builds upon foundational research in genomic deep learning:

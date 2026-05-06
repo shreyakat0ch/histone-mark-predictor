@@ -1,22 +1,23 @@
 import os
 
 # --- Paths ---
-# Use the directory where this script is located as the base
-import pathlib
-CONFIG_DIR = os.path.dirname(os.path.abspath(__file__))
-RELEASE_DIR = str(pathlib.Path(CONFIG_DIR).parent)
-SHARED_HISTONE_DIR = str(pathlib.Path(RELEASE_DIR).parent)
+# By default, we look for data in the project root.
+# You can override these using environment variables.
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Use the shared raw dataset. This release keeps its own processed cache because
-# the older shared processed files were built with a different mark set.
-DATA_DIR = "/media/user/disk21/shreyak/histone/data"
-PROCESSED_DIR = os.path.join(RELEASE_DIR, "processed")
-RUNS_DIR = os.path.join(RELEASE_DIR, "runs")
+# Root directory for raw data (BED and RNA files)
+DATA_DIR = os.getenv("HISTONE_DATA_DIR", os.path.join(PROJECT_ROOT, "data"))
+
+# Directory for processed caches and metadata
+PROCESSED_DIR = os.path.join(PROJECT_ROOT, "processed")
+
+# Output directories
+RUNS_DIR = os.path.join(PROJECT_ROOT, "runs")
 PLOTS_DIR = os.path.join(RUNS_DIR, "plots")
 
-# Note: FASTA and GTF usually need absolute external paths
-FASTA_PATH = "/media/user/disk21/shreyak/histone/hg38.fa"
-GTF_PATH = "/media/user/disk21/shreyak/histone/hg38.knownGene.gtf"
+# Genomic References
+FASTA_PATH = os.getenv("HISTONE_FASTA_PATH", os.path.join(DATA_DIR, "hg38.fa"))
+GTF_PATH = os.getenv("HISTONE_GTF_PATH", os.path.join(DATA_DIR, "hg38.knownGene.gtf"))
 
 # Ensure directories exist
 os.makedirs(PROCESSED_DIR, exist_ok=True)
