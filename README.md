@@ -62,9 +62,3 @@ This work builds upon foundational research in genomic deep learning:
 - **Enformer**: Avsec, Ž., et al. (2021). "Effective gene expression prediction from sequence by integrating long-range interactions." *Methods in Molecular Biology*.
 - **DeepSEA**: Zhou, J., & Troyanskaya, O. G. (2015). "Predicting effects of noncoding variants with deep learning-based sequence model." *Nature Methods*.
 - **FiLM**: Perez, E., et al. (2018). "FiLM: Visual Reasoning with a General Conditioning Layer." *AAAI*.
-
-## License
-
-Copyright (c) 2026 shreya katoch. All rights reserved. 
-
-This source code is provided solely for portfolio review by recruiters and hiring managers. No permission is granted for redistribution or use pending academic publication. See `LICENSE` for full details.
